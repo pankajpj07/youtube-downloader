@@ -9,7 +9,7 @@ export const getTitle = async (videoID:string) => {
       const title  = res.items[0].snippet.title;
       return title;
     }
-    return 'Random title'
+    return 'youtubeVid'
 }
 
 export const getVideoID = (url:string) => {
