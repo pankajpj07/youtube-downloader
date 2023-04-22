@@ -16,7 +16,7 @@ function App({ Component, pageProps }:AppProps) {
         <meta name="description" content="Easily download Youtube videos with our online Youtube downloader. No software installation needed. Save your favorite Youtube videos for free!" />
         <meta name="keywords" content="Youtube downloader, online video downloader, save Youtube videos, download Youtube videos, Youtube video downloader" />
         <title>UTubeLoader - Save Youtube Videos Easily</title>
-        <link rel="manifest" href="/manifest.json" />
+        <link rel="manifest" href="/manifest.json" crossOrigin="use-credentials"/>
         <link
           href={logoPath}
           rel="icon"
