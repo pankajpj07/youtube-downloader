@@ -1,7 +1,7 @@
 import "tailwindcss/tailwind.css";
 import Head from 'next/head'
 import { AppProps } from 'next/app';
-import { logoPath } from "./constants/constants";
+import { logoPath } from "../constants/constants";
 
 function App({ Component, pageProps }:AppProps) {
   return (

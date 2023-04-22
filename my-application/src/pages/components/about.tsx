@@ -1,4 +1,4 @@
-import { AboutContent, AboutTitle } from "../constants/constants";
+import { AboutContent, AboutTitle } from "../../constants/constants";
 
 export default function About() {
     return (

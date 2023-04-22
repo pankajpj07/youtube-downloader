@@ -1,5 +1,5 @@
 import React, {useEffect } from "react";
-import Download from "./components/dowload";
+import Download from "./components/download";
 import Header from "./components/header";
 import About from "./components/about";
 import HowToDownload from "./components/howtodownload";

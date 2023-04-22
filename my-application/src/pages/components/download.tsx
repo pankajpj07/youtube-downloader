@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 import download from 'downloadjs';
-import { getTitle, getVideoID } from "../utilities/format-youtube-utilities";
+import { getVideoID } from "../../utilities/format-youtube-utilities";
 import Button from "./Button";
+import { audioTitle, videoTitle } from "../../constants/constants";
 
 
 
 export default function Download() {
   const [url, setUrl] = useState<string>("");
-  const [ info, setInfo ] = useState<string>('');
+  const [ info, setInfo ] = useState<string | null>('');
   
   const handleMp4 = async () => {
     const videoID = getVideoID(url);
     setInfo("Processing the video...");
     if(videoID){
-      const title = await getTitle(videoID);
       try{
         const requestOptions = {
           method: 'POST',
@@ -28,7 +28,7 @@ export default function Download() {
           if(sizeInBytes <=0){
             setInfo("Unable to download! Maybe File size is too high. Try to download video less than 5MB");
           }else{
-            download(blob,`${title}.mp4`,"video/mp4");
+            download(blob,`${videoTitle}.mp4`,"video/mp4");
             setInfo("Ready for download!");
           }
         });
@@ -46,7 +46,6 @@ export default function Download() {
     const videoID = getVideoID(url);
     setInfo("Processing the video...");
     if(videoID){
-      const title = await getTitle(videoID);
       try{
         const requestOptions = {
           method: 'POST',
@@ -61,7 +60,7 @@ export default function Download() {
           if(sizeInBytes<=0){
             setInfo("Unable to download! Maybe File size is too high. Try to download video less than 5MB");
           }else{
-            download(blob,`${title}.mp3`,"audio/mpeg");
+            download(blob,`${audioTitle}.mp3`,"audio/mpeg");
             setInfo("Ready for download!");
           }
         });
