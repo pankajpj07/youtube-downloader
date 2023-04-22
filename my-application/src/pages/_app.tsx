@@ -1,6 +1,7 @@
 import "tailwindcss/tailwind.css";
 import Head from 'next/head'
 import { AppProps } from 'next/app';
+import { logoPath } from "./constants/constants";
 
 function App({ Component, pageProps }:AppProps) {
   return (
@@ -14,10 +15,10 @@ function App({ Component, pageProps }:AppProps) {
         />
         <meta name="description" content="Easily download Youtube videos with our online Youtube downloader. No software installation needed. Save your favorite Youtube videos for free!" />
         <meta name="keywords" content="Youtube downloader, online video downloader, save Youtube videos, download Youtube videos, Youtube video downloader" />
-        <title>Online Youtube Downloader - Save Youtube Videos Easily</title>
+        <title>UTubeLoader - Save Youtube Videos Easily</title>
         <link rel="manifest" href="/manifest.json" />
         <link
-          href="/icon.png"
+          href={logoPath}
           rel="icon"
           type="image/png"
           sizes="16x16"
