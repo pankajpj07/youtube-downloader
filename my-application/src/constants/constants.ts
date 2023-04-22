@@ -1,5 +1,5 @@
 export const companyName='UTubeLoader'
-export const logoPath="/logo.png"
+export const logoPath="/logo.svg"
 export const AboutTitle='The Best YouTube Video Downloader'
 export const videoTitle='Youtube-video'
 export const audioTitle='Youtube-audio'
