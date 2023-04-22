@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import download from 'downloadjs';
-import { getVideoID } from "../../utilities/format-youtube-utilities";
+import { getVideoID } from "../utilities/format-youtube-utilities";
 import Button from "./Button";
-import { audioTitle, videoTitle } from "../../constants/constants";
+import { audioTitle, videoTitle } from "../constants/constants";
 
 
 

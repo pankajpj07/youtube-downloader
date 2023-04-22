@@ -1,5 +1,1 @@
-module.exports = {
-    env: {
-      YTAPIKEY: 'my-value',
-    },
-  }
+module.exports = {};

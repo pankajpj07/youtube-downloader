@@ -1,8 +1,8 @@
 import Head from "next/head";
 import { Fragment } from "react";
 import { companyName } from "../constants/constants";
-import Header from "./components/header";
-import Footer from "./components/footer";
+import Header from "../components/header";
+import Footer from "../components/footer";
 
 export default function PrivacyPolicy(){
   return (

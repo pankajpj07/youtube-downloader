@@ -1,10 +1,10 @@
 import React, {useEffect } from "react";
-import Download from "./components/download";
-import Header from "./components/header";
-import About from "./components/about";
-import HowToDownload from "./components/howtodownload";
-import Specs from "./components/specs";
-import Footer from "./components/footer";
+import Download from "../components/download";
+import Header from "../components/header";
+import About from "../components/about";
+import HowToDownload from "../components/howtodownload";
+import Specs from "../components/specs";
+import Footer from "../components/footer";
 
 export default function Home() {
   

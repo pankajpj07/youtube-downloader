@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from 'next/image'
-import { logoPath } from "../../constants/constants"
+import { logoPath } from "../constants/constants"
 
 export default function Header() {
     return (
