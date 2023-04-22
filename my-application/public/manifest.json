@@ -1,0 +1,13 @@
+{
+    "name": "UTubeLoader",
+    "short_name": "UTubeLoader",
+    "icons": [
+        {
+            "src": "/logo.svg",
+            "sizes": "any",
+            "type": "image/svg+xml"
+          }
+    ],
+    "background_color": "#ffffff",
+    "display": "standalone"
+  }
