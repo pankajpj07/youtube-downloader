@@ -13,6 +13,7 @@ function App({ Component, pageProps }:AppProps) {
           name="viewport"
           content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=5"
         />
+        <meta name="google-site-verification" content="0k3-dqRQViGsE4wVAWik86L19UwwRo3rWr-b_eQkkfY" />
         <meta name="description" content="Easily download Youtube videos with our online Youtube downloader. No software installation needed. Save your favorite Youtube videos for free!" />
         <meta name="keywords" content="Youtube downloader, online video downloader, save Youtube videos, download Youtube videos, Youtube video downloader" />
         <title>UTubeLoader - Save Youtube Videos Easily</title>
