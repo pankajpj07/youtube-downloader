@@ -34,7 +34,7 @@ export default async function handler(
           "content-disposition",
           `attachment; filename="${title.substring(0, 15)?.trim()}"`
         );
-        await ytdl(url, { quality: "136" }).pipe(res);
+        await ytdl(url).pipe(res);
       }
     } catch (err) {
       logger.error("Some error occured:", err);
