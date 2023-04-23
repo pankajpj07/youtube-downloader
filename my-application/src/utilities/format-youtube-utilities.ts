@@ -1,5 +1,3 @@
-export const ytApiKey= process.env.YTAPIKEY
-
 export const getVideoID = (url:string) => {
     if(url.match(/watch/)){
       const videoID = url.split("/")[3].split("?")[1].split("=")[1];
