@@ -14,7 +14,7 @@ export default async function handler(
       const type = req.body.type;
       logger.info(type, " File requested to download");
 
-      const videoId = urlParse(url, true).query.v;
+      // const videoId = urlParse(url, true).query.v;
       // const info = await ytdl.getInfo(videoId);
       const title = 'random';
 
