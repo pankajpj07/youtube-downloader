@@ -22,7 +22,7 @@ export default async function handler(
         res.setHeader("content-type", "audio/mpeg");
         res.setHeader(
           "content-disposition",
-          `attachment; filename="${title.substring(0, 15).trim()}"`
+          `attachment; filename="${title.substring(0, 15)?.trim()}"`
         );
         await ytdl(url, {
           format: "mp3",
@@ -32,7 +32,7 @@ export default async function handler(
         res.setHeader("content-type", "video/mp4");
         res.setHeader(
           "content-disposition",
-          `attachment; filename="${title.substring(0, 15).trim()}"`
+          `attachment; filename="${title.substring(0, 15)?.trim()}"`
         );
         await ytdl(url, { quality: "136" }).pipe(res);
       }
