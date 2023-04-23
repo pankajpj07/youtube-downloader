@@ -29,11 +29,11 @@ export default async function handler(
           filter: "audioonly",
         });
         console.log("response",response)
-        response.on('data', (chunk) => {
+        response.on('data', (chunk:Buffer) => {
           res.write(chunk);
         });
         response.on('end', () => {
-          res.end();
+        res.end();
         });
       } else if (type === "mp4") {
         res.setHeader("content-type", "video/mp4");
@@ -41,12 +41,20 @@ export default async function handler(
           "content-disposition",
           `attachment; filename="${title.substring(0, 15)?.trim()}"`
         );
-        const response = await ytdl(url, { filter: format => format.container === 'mp4' })
-        console.log("response",response)
-        response.on('data', (chunk) => {
+        const response = await ytdl(url, {
+          filter: (format:any) => format.container === "mp4",
+        });
+      
+        response.on("error", (err: Error) => {
+          console.error("Response error:", err);
+          res.status(500).send("Internal Server Error");
+        });
+      
+        response.on("data", (chunk: Buffer) => {
           res.write(chunk);
         });
-        response.on('end', () => {
+      
+        response.on("end", () => {
           res.end();
         });
         
