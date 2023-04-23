@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import download from "downloadjs";
 import { getVideoID } from "../utilities/format-youtube-utilities";
 import Button from "./Button";
+import featureToggles from '../../config/featureToggle';
+
 
 export default function Download() {
   const [audioTitle, setAudioTitle] = useState("audio");
@@ -115,8 +117,8 @@ export default function Download() {
               </div>
             </div>
             <div className="p-3 flex w-full justify-center">
-              <Button title={"Download mp3"} onClickFn={handleMp3} />
-              {/* <Button title={"Download mp4"} onClickFn={handleMp4} /> */}
+              {featureToggles.isEnableMP3 && <Button title={"Download mp3"} onClickFn={handleMp3} />}
+              {featureToggles.isEnableMP4 && <Button title={"Download mp4"} onClickFn={handleMp4} />}
             </div>
           </div>
           {info && <h3 className="flex justify-center p-3 m-1.5 "> {info} </h3>}
