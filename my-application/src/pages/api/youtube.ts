@@ -15,8 +15,8 @@ export default async function handler(
       logger.info(type, " File requested to download");
 
       const videoId = urlParse(url, true).query.v;
-      const info = await ytdl.getInfo(videoId);
-      const title = info.videoDetails.title;
+      // const info = await ytdl.getInfo(videoId);
+      const title = 'random';
 
       if (type === "mp3") {
         res.setHeader("content-type", "audio/mpeg");
