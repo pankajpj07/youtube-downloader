@@ -24,17 +24,32 @@ export default async function handler(
           "content-disposition",
           `attachment; filename="${title.substring(0, 15)?.trim()}"`
         );
-        await ytdl(url, {
+        const response = await ytdl(url, {
           format: "mp3",
           filter: "audioonly",
-        }).pipe(res);
+        });
+        console.log("response",response)
+        response.on('data', (chunk) => {
+          res.write(chunk);
+        });
+        response.on('end', () => {
+          res.end();
+        });
       } else if (type === "mp4") {
         res.setHeader("content-type", "video/mp4");
         res.setHeader(
           "content-disposition",
           `attachment; filename="${title.substring(0, 15)?.trim()}"`
         );
-        await ytdl(url).pipe(res);
+        const response = await ytdl(url, { filter: format => format.container === 'mp4' })
+        console.log("response",response)
+        response.on('data', (chunk) => {
+          res.write(chunk);
+        });
+        response.on('end', () => {
+          res.end();
+        });
+        
       }
     } catch (err) {
       logger.error("Some error occured:", err);
