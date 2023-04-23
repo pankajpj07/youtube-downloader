@@ -20,7 +20,7 @@ export default async function handler(
         }).pipe(res);
       } else if (type === "mp4") {
         res.setHeader("content-type", "video/mp4");
-        await ytdl(url).pipe(res);
+        await ytdl(url,{quality:'136'}).pipe(res);
       }
     } catch (err) {
       logger.error("Some error occured:", err);
@@ -30,4 +30,10 @@ export default async function handler(
     logger.error("Invalid Request by the user");
     res.status(400).json({ result: false });
   }
+}
+
+export const config = {
+  api: {
+    responseLimit: false,
+  },
 }
