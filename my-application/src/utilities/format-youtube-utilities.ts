@@ -1,10 +1,9 @@
-export const getVideoID = (url:string) => {
+export const getVideoID = (url:string):string | undefined => {
     if(url.match(/watch/)){
-      const videoID = url.split("/")[3].split("?")[1].split("=")[1];
-      return videoID;
+      return url.split("/")[3].split("?")[1].split("=")[1];
     }else if(url.match(/youtu.be/)){
-      const videoID = url!="" && url.split("/")[3];
-      return videoID
+      return url.split("/")[3];
     }
+    return undefined
   }
   
