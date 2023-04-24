@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import download from "downloadjs";
 import { getVideoID } from "../utilities/format-youtube-utilities";
 import Button from "./Button";
-import featureToggles from '../../config/featureToggle';
-
+import featureToggles from "../../config/featureToggle";
+import * as ga from "../../lib/ga/index";
 
 export default function Download() {
   const [audioTitle, setAudioTitle] = useState("audio");
@@ -12,6 +12,12 @@ export default function Download() {
   const [info, setInfo] = useState<string | null>("");
 
   const handleMp4 = async () => {
+    ga.event({
+      action: "MP4 Video",
+      params: {
+        search_term: url,
+      },
+    });
     const videoID = getVideoID(url);
     setInfo("Processing the video...");
     if (videoID) {
@@ -23,7 +29,9 @@ export default function Download() {
         };
         fetch(`/api/youtube`, requestOptions)
           .then((res) => {
-            const title=res.headers.get("content-disposition")?.split('filename="')[1] || ''
+            const title =
+              res.headers.get("content-disposition")?.split('filename="')[1] ||
+              "";
             setVideoTitle(title);
             return res.blob();
           })
@@ -50,6 +58,12 @@ export default function Download() {
   };
 
   const handleMp3 = async () => {
+    ga.event({
+      action: "MP3 Audio",
+      params: {
+        search_term: url,
+      },
+    });
     const videoID = getVideoID(url);
     setInfo("Processing the video...");
     if (videoID) {
@@ -61,8 +75,10 @@ export default function Download() {
         };
         fetch(`/api/youtube`, requestOptions)
           .then((res) => {
-            const title=res.headers.get("content-disposition")?.split('filename="')[1] || ''
-            console.log("title",title)
+            const title =
+              res.headers.get("content-disposition")?.split('filename="')[1] ||
+              "";
+            console.log("title", title);
             setAudioTitle(title);
             return res.blob();
           })
@@ -117,8 +133,12 @@ export default function Download() {
               </div>
             </div>
             <div className="p-3 flex w-full justify-center">
-              {featureToggles.isEnableMP3 && <Button title={"Download mp3"} onClickFn={handleMp3} />}
-              {featureToggles.isEnableMP4 && <Button title={"Download mp4"} onClickFn={handleMp4} />}
+              {featureToggles.isEnableMP3 && (
+                <Button title={"Download mp3"} onClickFn={handleMp3} />
+              )}
+              {featureToggles.isEnableMP4 && (
+                <Button title={"Download mp4"} onClickFn={handleMp4} />
+              )}
             </div>
           </div>
           {info && <h3 className="flex justify-center p-3 m-1.5 "> {info} </h3>}
