@@ -67,9 +67,12 @@ export default function Download() {
               );
             } else {
               download(blob, `audio.mp3`, "audio/mpeg");
-              setInfo("Ready for download!");
+              setInfo("File downloaded successfully!");
             }
-          });
+          }).catch((err) => {
+            console.log("err: ", err);
+            alert(err);
+          })
       } catch (err) {
         console.log("err: ", err);
         alert(err);
