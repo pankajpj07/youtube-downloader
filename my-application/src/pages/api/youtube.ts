@@ -2,7 +2,6 @@ const ytdl = require("ytdl-core");
 const fs = require("fs");
 import { NextApiRequest, NextApiResponse } from "next";
 import logger from "../../../logs/logger";
-const urlParse = require("url-parse");
 
 export default async function handler(
   req: NextApiRequest,
@@ -13,10 +12,6 @@ export default async function handler(
       const url = req.body.url;
       const type = req.body.type;
       logger.info(type, " File requested to download");
-
-      // const videoId = urlParse(url, true).query.v;
-      // const info = await ytdl.getInfo(videoId);
-
       if (type === "mp3") {
         res.setHeader("content-type", "audio/mpeg");
         res.setHeader("Content-Disposition", `attachment; filename=audio.mp3`);

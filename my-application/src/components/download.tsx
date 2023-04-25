@@ -55,6 +55,7 @@ export default function Download() {
         fetch(`/api/youtube`, requestOptions)
           .then((res) => res.blob())
           .then((blob) => {
+            console.log("blob",blob)
             const sizeInBytes = blob.size;
             console.log("sizeInBytes: ", sizeInBytes);
             if (sizeInBytes <= 0) {
