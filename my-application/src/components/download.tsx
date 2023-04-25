@@ -19,7 +19,7 @@ export default function Download() {
           body: JSON.stringify({ url, type: "mp4" }),
         };
         fetch(`/api/youtube`, requestOptions)
-          .then((res) =>res.blob())
+          .then((res) => res.blob())
           .then((blob) => {
             const sizeInBytes = blob.size;
             console.log("sizeInBytes: ", sizeInBytes);
@@ -55,7 +55,10 @@ export default function Download() {
         fetch(`/api/youtube`, requestOptions)
           .then((res) => res.blob())
           .then((blob) => {
-            console.log("blob",blob)
+            if (blob.type !== "audio/mpeg") {
+              throw new Error("Oops!!! This never happened before");
+            }
+            console.log("blob", blob);
             const sizeInBytes = blob.size;
             console.log("sizeInBytes: ", sizeInBytes);
             if (sizeInBytes <= 0) {
@@ -69,6 +72,7 @@ export default function Download() {
           });
       } catch (err) {
         console.log("err: ", err);
+        alert(err);
       }
     } else {
       setInfo("Invalid URL");
