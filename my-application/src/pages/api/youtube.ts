@@ -16,9 +16,10 @@ export default async function handler(
 
       // const videoId = urlParse(url, true).query.v;
       // const info = await ytdl.getInfo(videoId);
-      const title = 'random';
+      let title = "";
 
       if (type === "mp3") {
+        title='new audio'
         res.setHeader("content-type", "audio/mpeg");
         res.setHeader(
           "content-disposition",
@@ -28,12 +29,12 @@ export default async function handler(
           format: "mp3",
           filter: "audioonly",
         });
-        console.log("response",response)
-        response.on('data', (chunk:Buffer) => {
+        console.log("response", response);
+        response.on("data", (chunk: Buffer) => {
           res.write(chunk);
         });
-        response.on('end', () => {
-        res.end();
+        response.on("end", () => {
+          res.end();
         });
       } else if (type === "mp4") {
         res.setHeader("content-type", "video/mp4");
@@ -42,22 +43,21 @@ export default async function handler(
           `attachment; filename="${title.substring(0, 15)?.trim()}"`
         );
         const response = await ytdl(url, {
-          filter: (format:any) => format.container === "mp4",
+          filter: (format: any) => format.container === "mp4",
         });
-      
+
         response.on("error", (err: Error) => {
           console.error("Response error:", err);
           res.status(500).send("Internal Server Error");
         });
-      
+
         response.on("data", (chunk: Buffer) => {
           res.write(chunk);
         });
-      
+
         response.on("end", () => {
           res.end();
         });
-        
       }
     } catch (err) {
       logger.error("Some error occured:", err);
@@ -71,6 +71,12 @@ export default async function handler(
 
 export const config = {
   api: {
-    responseLimit: false,
+    responseLimit: "50mb",
+    externalResolver: true,
+    bodyParser: {
+      sizeLimit: "50mb",
+    },
+    // Increase the response timeout to 1 minute
+    responseTimeout: 60000,
   },
 };

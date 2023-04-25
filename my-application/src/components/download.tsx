@@ -65,7 +65,7 @@ export default function Download() {
       },
     });
     const videoID = getVideoID(url);
-    setInfo("Processing the video...");
+    setInfo("Processing the audio...");
     if (videoID) {
       try {
         const requestOptions = {
