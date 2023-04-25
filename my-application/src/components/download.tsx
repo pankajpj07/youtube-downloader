@@ -3,7 +3,6 @@ import download from "downloadjs";
 import { getVideoID } from "../utilities/format-youtube-utilities";
 import Button from "./Button";
 import featureToggles from "../../config/featureToggle";
-import * as ga from "../../lib/ga/index";
 
 export default function Download() {
   const [audioTitle, setAudioTitle] = useState("audio");
@@ -12,12 +11,6 @@ export default function Download() {
   const [info, setInfo] = useState<string | null>("");
 
   const handleMp4 = async () => {
-    ga.event({
-      action: "MP4 Video",
-      params: {
-        search_term: url,
-      },
-    });
     const videoID = getVideoID(url);
     setInfo("Processing the video...");
     if (videoID) {
@@ -58,12 +51,6 @@ export default function Download() {
   };
 
   const handleMp3 = async () => {
-    ga.event({
-      action: "MP3 Audio",
-      params: {
-        search_term: url,
-      },
-    });
     const videoID = getVideoID(url);
     setInfo("Processing the audio...");
     if (videoID) {
@@ -76,9 +63,10 @@ export default function Download() {
         fetch(`/api/youtube`, requestOptions)
           .then((res) => {
             const title =
-              res.headers.get("content-disposition")?.split('filename="')[1] ||
+              res.headers.get("content-disposition")?.split('filename="')[1]
+              ||
               "";
-            console.log("title", title);
+            console.log("title", title?.substring(0,title.length-1));
             setAudioTitle(title);
             return res.blob();
           })

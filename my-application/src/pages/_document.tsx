@@ -6,11 +6,11 @@ export default function Document() {
     <Html lang="en">
       <Head />
       {/* Global Site Tag (gtag.js) - Google Analytics */}
-      <script
+      <Script
         async
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
       />
-      <script
+      <Script
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];

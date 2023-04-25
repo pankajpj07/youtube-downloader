@@ -30,11 +30,17 @@ export default async function handler(
           filter: "audioonly",
         });
         console.log("response", response);
-        response.on("data", (chunk: Buffer) => {
+        response.on('data', (chunk:Buffer) => {
+          console.log('Received data chunk:', chunk.length);
           res.write(chunk);
         });
-        response.on("end", () => {
+        response.on('end', () => {
+          console.log('Finished receiving data');
           res.end();
+        });
+        response.on('error', (err:any) => {
+          console.error('Error downloading video:', err);
+          res.status(500).send('Internal Server Error');
         });
       } else if (type === "mp4") {
         res.setHeader("content-type", "video/mp4");
