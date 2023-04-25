@@ -5,8 +5,6 @@ import Button from "./Button";
 import featureToggles from "../../config/featureToggle";
 
 export default function Download() {
-  const [audioTitle, setAudioTitle] = useState("audio");
-  const [videoTitle, setVideoTitle] = useState("video");
   const [url, setUrl] = useState<string>("");
   const [info, setInfo] = useState<string | null>("");
 
@@ -21,13 +19,7 @@ export default function Download() {
           body: JSON.stringify({ url, type: "mp4" }),
         };
         fetch(`/api/youtube`, requestOptions)
-          .then((res) => {
-            const title =
-              res.headers.get("content-disposition")?.split('filename="')[1] ||
-              "";
-            setVideoTitle(title);
-            return res.blob();
-          })
+          .then((res) =>res.blob())
           .then((blob) => {
             const sizeInBytes = blob.size;
             console.log("sizeInBytes: ", sizeInBytes);
@@ -36,7 +28,7 @@ export default function Download() {
                 "Unable to download! Maybe File size is too high. Try to download video less than 5MB"
               );
             } else {
-              download(blob, `${videoTitle}.mp4`, "video/mp4");
+              download(blob, `video.mp4`, "video/mp4");
               setInfo("Ready for download!");
             }
           });
@@ -61,15 +53,7 @@ export default function Download() {
           body: JSON.stringify({ url, type: "mp3" }),
         };
         fetch(`/api/youtube`, requestOptions)
-          .then((res) => {
-            const title =
-              res.headers.get("content-disposition")?.split('filename="')[1]
-              ||
-              "";
-            console.log("title", title?.substring(0,title.length-1));
-            setAudioTitle(title);
-            return res.blob();
-          })
+          .then((res) => res.blob())
           .then((blob) => {
             const sizeInBytes = blob.size;
             console.log("sizeInBytes: ", sizeInBytes);
@@ -78,7 +62,7 @@ export default function Download() {
                 "Unable to download! Maybe File size is too high. Try to download video less than 5MB"
               );
             } else {
-              download(blob, `${audioTitle}.mp3`, "audio/mpeg");
+              download(blob, `audio.mp3`, "audio/mpeg");
               setInfo("Ready for download!");
             }
           });

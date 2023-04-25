@@ -16,15 +16,9 @@ export default async function handler(
 
       // const videoId = urlParse(url, true).query.v;
       // const info = await ytdl.getInfo(videoId);
-      let title = "";
 
       if (type === "mp3") {
-        title='new audio'
         res.setHeader("content-type", "audio/mpeg");
-        res.setHeader(
-          "content-disposition",
-          `attachment; filename="${title.substring(0, 15)?.trim()}"`
-        );
         const response = await ytdl(url, {
           format: "mp3",
           filter: "audioonly",
@@ -44,10 +38,6 @@ export default async function handler(
         });
       } else if (type === "mp4") {
         res.setHeader("content-type", "video/mp4");
-        res.setHeader(
-          "content-disposition",
-          `attachment; filename="${title.substring(0, 15)?.trim()}"`
-        );
         const response = await ytdl(url, {
           filter: (format: any) => format.container === "mp4",
         });
