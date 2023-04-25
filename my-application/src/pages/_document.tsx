@@ -7,6 +7,7 @@ export default function Document() {
       <Head />
       {/* Global Site Tag (gtag.js) - Google Analytics */}
       <Script
+        id="ga-script"
         async
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
       />
