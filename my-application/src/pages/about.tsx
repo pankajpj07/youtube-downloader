@@ -7,6 +7,11 @@ export default function About() {
     <>
       <Head>
         <title>About Us - UTubeDownloader</title>
+        <link
+          rel="canonical"
+          href="https://www.utubeloader.com/about"
+          key="canonical"
+        />
         <meta name="description" content="Learn more about UTubeDownloader, the free online tool that lets you download YouTube videos in MP3 and MP4 formats." />
       </Head>
       <Header/>

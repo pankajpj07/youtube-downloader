@@ -9,6 +9,11 @@ export default function PrivacyPolicy(){
     <Fragment>
       <Head>
         <title>Privacy Policy | {companyName}</title>
+        <link
+          rel="canonical"
+          href="https://www.utubeloader.com/privacy-policy"
+          key="canonical"
+        />
         <meta name="description" content="Read our privacy policy to learn how we handle and protect your personal information while using {companyName} website, applications, and related services."/>
       </Head>
       <Header/>

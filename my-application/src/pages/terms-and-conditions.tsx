@@ -8,6 +8,11 @@ export default function TermsAndConditions() {
     <>
       <Head>
         <title>{companyName} - Terms and Conditions</title>
+        <link
+          rel="canonical"
+          href="https://www.utubeloader.com/terms-and-conditions"
+          key="canonical"
+        />
         <meta name="description" content="Read our Terms and Conditions to learn about your rights and obligations when using {companyName} services. Find out how we protect your privacy and what you need to know before using our platform."></meta>
       </Head>
       <Header />

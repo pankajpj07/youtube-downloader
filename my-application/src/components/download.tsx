@@ -56,10 +56,10 @@ export default function Download() {
             FREE <span className="text-red-700">&nbsp;YOUTUBE</span>
             &nbsp;DOWNLOADER{" "}
           </h1>
-          <h2 className="text-xs py-1 flex justify-center">
+          <span className="text-xs py-1 flex justify-center">
             {" "}
             Sample video link : https://youtu.be/videoID{" "}
-          </h2>
+          </span>
           <div className=" overflow-hidden shadow-sm sm:rounded-lg w-full">
             <div className="p-6 border-b border-gray-200 flex justify-center w-full">
               <div className="flex w-full md:w-4/5">

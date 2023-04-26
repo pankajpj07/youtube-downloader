@@ -20,13 +20,13 @@ function App({ Component, pageProps }: AppProps) {
         />
         <meta
           name="description"
-          content="Easily download Youtube videos with our online Youtube downloader. No software installation needed. Save your favorite Youtube videos for free!"
+          content="A free online YouTube downloader tool that allows users to download YouTube videos in HD quality in MP4 and various other formats."
         />
         <meta
           name="keywords"
           content="Youtube downloader, online video downloader, save Youtube videos, download Youtube videos, Youtube video downloader"
         />
-        <title>UTubeLoader - Save Youtube Videos Easily</title>
+        <title>UTubeLoader - Save Youtube Videos and Audios Easily</title>
         <link
           rel="manifest"
           href="/manifest.json"

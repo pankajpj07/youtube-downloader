@@ -8,6 +8,11 @@ export default function FAQ() {
     <>
       <Head>
         <title>FAQ - {companyName}</title>
+        <link
+          rel="canonical"
+          href="https://www.utubeloader.com/faq"
+          key="canonical"
+        />
         <meta name="description" content="Find answers to frequently asked questions about using {companyName} - the fastest and easiest way to download videos from various video sharing websites, including YouTube. Learn about our features, supported formats, and more."/> 
       </Head>
       {/* Header */}
