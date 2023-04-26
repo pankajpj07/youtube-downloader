@@ -46,37 +46,34 @@ export default function Download() {
     const videoID = getVideoID(url);
     setInfo("Processing the audio...");
     if (videoID) {
-      try {
-        const requestOptions = {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ url, type: "mp3" }),
-        };
-        fetch(`/api/youtube`, requestOptions)
-          .then((res) => res.blob())
-          .then((blob) => {
-            if (blob.type !== "audio/mpeg") {
-              throw new Error("Oops!!! This never happened before");
-            }
-            console.log("blob", blob);
-            const sizeInBytes = blob.size;
-            console.log("sizeInBytes: ", sizeInBytes);
-            if (sizeInBytes <= 0) {
-              setInfo(
-                "Unable to download! Maybe File size is too high. Try to download video less than 5MB"
-              );
-            } else {
-              download(blob, `audio.mp3`, "audio/mpeg");
-              setInfo("File downloaded successfully!");
-            }
-          }).catch((err) => {
-            console.log("err: ", err);
-            alert(err);
-          })
-      } catch (err) {
-        console.log("err: ", err);
-        alert(err);
-      }
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url, type: "mp3" }),
+      };
+      fetch(`/api/youtube`, requestOptions)
+        .then((res) => res.blob())
+        .then((blob) => {
+          if (blob.type !== "audio/mpeg") {
+            throw new Error("Oops!!! This never happened before");
+          }
+          console.log("blob", blob);
+          const sizeInBytes = blob.size;
+          console.log("sizeInBytes: ", sizeInBytes);
+          if (sizeInBytes <= 0) {
+            setInfo(
+              "Unable to download! Maybe File size is too high. Try to download video less than 5MB"
+            );
+          } else {
+            download(blob, `audio.mp3`, "audio/mpeg");
+            setInfo("File downloaded successfully!");
+          }
+        })
+        .catch((err) => {
+          console.log("err: ", err);
+          setInfo("Some Error occured!!")
+          alert(err);
+        });
     } else {
       setInfo("Invalid URL");
     }
