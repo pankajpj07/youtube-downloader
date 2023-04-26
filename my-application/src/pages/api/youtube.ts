@@ -1,5 +1,4 @@
 const ytdl = require("ytdl-core");
-const fs = require("fs");
 import { NextApiRequest, NextApiResponse } from "next";
 import logger from "../../../logs/logger";
 

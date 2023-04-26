@@ -29,8 +29,8 @@ export default function Download() {
       try {
         const res = await fetch(`/api/youtube`, requestOptions);
         const blob = await res.blob();
-        // if fileType is not as expected
-        if (blob.type !== fileType || blob?.size <= 0) {
+        // if fileType is not as expected or response is not correct
+        if (blob.type !== fileType || blob?.size <= 0 || !res.ok) {
           throw new Error("Oops! Some error occured. Please Try again");
         }
         download(blob, fileName, blob?.type);
