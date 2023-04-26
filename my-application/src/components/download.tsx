@@ -6,74 +6,43 @@ import featureToggles from "../../config/featureToggle";
 
 export default function Download() {
   const [url, setUrl] = useState<string>("");
-  const [info, setInfo] = useState<string | null>("");
+  const [info, setInfo] = useState<string>("");
 
-  const handleMp4 = async () => {
+  const handleDownload = async (mediaType: string = "mp3") => {
     const videoID = getVideoID(url);
-    setInfo("Processing the video...");
-    if (videoID) {
-      try {
-        const requestOptions = {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ url, type: "mp4" }),
-        };
-        fetch(`/api/youtube`, requestOptions)
-          .then((res) => res.blob())
-          .then((blob) => {
-            const sizeInBytes = blob.size;
-            console.log("sizeInBytes: ", sizeInBytes);
-            if (sizeInBytes <= 0) {
-              setInfo(
-                "Unable to download! Maybe File size is too high. Try to download video less than 5MB"
-              );
-            } else {
-              download(blob, `video.mp4`, "video/mp4");
-              setInfo("Ready for download!");
-            }
-          });
-      } catch (err) {
-        setInfo(
-          "Unable to download! Maybe File size is too high. Try to download video less than 5MB"
-        );
-      }
-    } else {
-      setInfo("Invalid URL");
-    }
-  };
+    const fileType =
+      mediaType === "mp3"
+        ? "audio/mpeg"
+        : mediaType === "mp4"
+        ? "video/mp4"
+        : "";
+    const fileName = mediaType === "mp3" ? "audio.mp3" : "video.mp4";
+    setInfo(`Processing the ${mediaType === "mp3" ? "audio" : "video"}...`);
 
-  const handleMp3 = async () => {
-    const videoID = getVideoID(url);
-    setInfo("Processing the audio...");
     if (videoID) {
       const requestOptions = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url, type: "mp3" }),
+        body: JSON.stringify({ url, type: mediaType }),
       };
-      fetch(`/api/youtube`, requestOptions)
-        .then((res) => res.blob())
-        .then((blob) => {
-          if (blob.type !== "audio/mpeg") {
-            throw new Error("Oops!!! This never happened before");
-          }
-          console.log("blob", blob);
-          const sizeInBytes = blob.size;
-          console.log("sizeInBytes: ", sizeInBytes);
-          if (sizeInBytes <= 0) {
-            setInfo(
-              "Unable to download! Maybe File size is too high. Try to download video less than 5MB"
-            );
-          } else {
-            download(blob, `audio.mp3`, "audio/mpeg");
-            setInfo("File downloaded successfully!");
-          }
-        })
-        .catch((err) => {
-          console.log("err: ", err);
-          setInfo("Some Error occured!!")
-          alert(err);
-        });
+
+      try {
+        const res = await fetch(`/api/youtube`, requestOptions);
+        const blob = await res.blob();
+        // if fileType is not as expected
+        if (blob.type !== fileType || blob?.size <= 0) {
+          throw new Error("Oops! Some error occured. Please Try again");
+        }
+        download(blob, fileName, blob?.type);
+        setInfo("File downloaded successfully!");
+
+        console.log("blob", blob);
+        console.log("size in KBs: ", blob?.size / 1000);
+      } catch (err) {
+        console.log("err: ", err);
+        setInfo("Some Error occured!!");
+        alert(err);
+      }
     } else {
       setInfo("Invalid URL");
     }
@@ -101,7 +70,7 @@ export default function Download() {
                   id="title"
                   value={url}
                   onChange={(e) => {
-                    setInfo(null);
+                    setInfo("");
                     setUrl(e.target.value);
                   }}
                   placeholder="Paste the valid youtube link"
@@ -111,10 +80,16 @@ export default function Download() {
             </div>
             <div className="p-3 flex w-full justify-center">
               {featureToggles.isEnableMP3 && (
-                <Button title={"Download mp3"} onClickFn={handleMp3} />
+                <Button
+                  title={"Download mp3"}
+                  onClickFn={() => handleDownload("mp3")}
+                />
               )}
               {featureToggles.isEnableMP4 && (
-                <Button title={"Download mp4"} onClickFn={handleMp4} />
+                <Button
+                  title={"Download mp4"}
+                  onClickFn={() => handleDownload("mp4")}
+                />
               )}
             </div>
           </div>
