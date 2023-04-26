@@ -1,4 +1,5 @@
-const ytdl = require("ytdl-core");
+// const ytdl = require("ytdl-core");
+const ytdl = require("@distube/ytdl-core");
 import { NextApiRequest, NextApiResponse } from "next";
 import logger from "../../../logs/logger";
 

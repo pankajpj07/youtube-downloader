@@ -65,6 +65,16 @@
     enabled "2.0.x"
     kuler "^2.0.0"
 
+"@distube/ytdl-core@^4.11.9":
+  version "4.11.9"
+  resolved "https://registry.npmjs.org/@distube/ytdl-core/-/ytdl-core-4.11.9.tgz"
+  integrity sha512-wlQu48gG9eV8YCASpra1bw2iXIlc3FuF/WiB8akBGmrp/jd9tGvuxwgOH5oKYQZYSSjzazsW2VX7L5rt+8Fu5Q==
+  dependencies:
+    m3u8stream "^0.8.6"
+    miniget "^4.2.2"
+    sax "^1.2.4"
+    undici "^5.22.0"
+
 "@emotion/babel-plugin@^11.7.1":
   version "11.10.6"
   resolved "https://registry.npmjs.org/@emotion/babel-plugin/-/babel-plugin-11.10.6.tgz"
@@ -754,7 +764,7 @@ browserslist@^4.21.5, "browserslist@>= 4.21.0":
     node-releases "^2.0.8"
     update-browserslist-db "^1.0.10"
 
-busboy@1.6.0:
+busboy@^1.6.0, busboy@1.6.0:
   version "1.6.0"
   resolved "https://registry.npmjs.org/busboy/-/busboy-1.6.0.tgz"
   integrity sha512-8SFQbg/0hQ9xy3UNTB0YEnsNBbWfhf7RtnzpL7TkBiTBRfrQ9Fxcnz7VJsleJpyp6rVLvXiuORqjlHi5q+PYuA==
@@ -3123,6 +3133,13 @@ unbox-primitive@^1.0.2:
     has-bigints "^1.0.2"
     has-symbols "^1.0.3"
     which-boxed-primitive "^1.0.2"
+
+undici@^5.22.0:
+  version "5.22.0"
+  resolved "https://registry.npmjs.org/undici/-/undici-5.22.0.tgz"
+  integrity sha512-fR9RXCc+6Dxav4P9VV/sp5w3eFiSdOjJYsbtWfd4s5L5C4ogyuVpdKIVHeW0vV1MloM65/f7W45nR9ZxwVdyiA==
+  dependencies:
+    busboy "^1.6.0"
 
 universalify@^2.0.0:
   version "2.0.0"
