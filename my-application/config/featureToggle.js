@@ -3,7 +3,7 @@ let isProduction = process.env.NODE_ENV === 'production';
 
 const prodFeatureFlags = {
   isEnableMP3: true,
-  isEnableMP4: false,
+  isEnableMP4: true,
 };
 
 const devFeatureFlags = {
