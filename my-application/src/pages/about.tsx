@@ -6,7 +6,7 @@ export default function About() {
   return (
     <>
       <Head>
-        <title>About Us - UTubeDownloader</title>
+        <title>About Us - Your Trusted YouTube Video Downloader"</title>
         <link
           rel="canonical"
           href="https://www.utubeloader.com/about"
