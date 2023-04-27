@@ -1,7 +1,14 @@
 {
-  "extends": "next/core-web-vitals",
+  "extends": ["prettier", "next/core-web-vitals"],
   "rules": {
     "react/no-unescaped-entities": "off",
-    "@next/next/no-page-custom-font": "off"
+    "@next/next/no-page-custom-font": "off",
+    "prefer-const": "error",
+    "@next/next/no-duplicate-head": "error",
+    "@next/next/no-css-tags": "error",
+    "@next/next/no-img-element": "error",
+    "@next/next/no-script-component-in-head": "error",
+    "@next/next/no-title-in-document-head": "warn",
+    "@next/next/no-typos": "error"
   }
 }

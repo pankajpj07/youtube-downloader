@@ -1,14 +1,13 @@
-let isProduction = process.env.NODE_ENV === 'production';
-
+const isProduction = process.env.NODE_ENV === 'production'
 
 const prodFeatureFlags = {
   isEnableMP3: true,
   isEnableMP4: true,
-};
+}
 
 const devFeatureFlags = {
   isEnableMP3: true,
   isEnableMP4: true,
-};
+}
 
-module.exports = isProduction ? prodFeatureFlags : devFeatureFlags;
+module.exports = isProduction ? prodFeatureFlags : devFeatureFlags

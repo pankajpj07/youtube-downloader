@@ -1,8 +1,8 @@
-import "tailwindcss/tailwind.css";
-import Head from "next/head";
-import { AppProps } from "next/app";
-import { logoPath } from "../constants/constants";
-import { Analytics } from "@vercel/analytics/react";
+import 'tailwindcss/tailwind.css'
+import Head from 'next/head'
+import { AppProps } from 'next/app'
+import { logoPath } from '../constants/constants'
+import { Analytics } from '@vercel/analytics/react'
 
 function App({ Component, pageProps }: AppProps) {
   return (
@@ -37,9 +37,9 @@ function App({ Component, pageProps }: AppProps) {
         <meta name="theme-color" content="#317EFB" />
       </Head>
       <Component {...pageProps} />
-      <Analytics/>
+      <Analytics />
     </>
-  );
+  )
 }
 
-export default App;
+export default App
