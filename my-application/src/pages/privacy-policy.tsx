@@ -1,10 +1,10 @@
-import Head from "next/head";
-import { Fragment } from "react";
-import { companyName } from "../constants/constants";
-import Header from "../components/header";
-import Footer from "../components/footer";
+import Head from 'next/head'
+import { Fragment } from 'react'
+import { companyName } from '../constants/constants'
+import Header from '../components/header'
+import Footer from '../components/footer'
 
-export default function PrivacyPolicy(){
+export default function PrivacyPolicy() {
   return (
     <Fragment>
       <Head>
@@ -14,9 +14,12 @@ export default function PrivacyPolicy(){
           href="https://www.utubeloader.com/privacy-policy"
           key="canonical"
         />
-        <meta name="description" content="Read our privacy policy to learn how we handle and protect your personal information while using {companyName} website, applications, and related services."/>
+        <meta
+          name="description"
+          content="Read our privacy policy to learn how we handle and protect your personal information while using {companyName} website, applications, and related services."
+        />
       </Head>
-      <Header/>
+      <Header />
       <div className="min-h-screen bg-gray-100">
         <div className="py-12 sm:max-w-xl md:max-w-3xl lg:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="prose prose-lg">
@@ -109,7 +112,7 @@ export default function PrivacyPolicy(){
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </Fragment>
-  );
-};
+  )
+}

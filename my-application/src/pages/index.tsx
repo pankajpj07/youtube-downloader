@@ -1,10 +1,10 @@
-import React from "react";
-import Download from "../components/download";
-import Header from "../components/header";
-import HowToDownload from "../components/howtodownload";
-import Specs from "../components/specs";
-import Footer from "../components/footer";
-import Head from "next/head";
+import React from 'react'
+import Download from '../components/download'
+import Header from '../components/header'
+import HowToDownload from '../components/howtodownload'
+import Specs from '../components/specs'
+import Footer from '../components/footer'
+import Head from 'next/head'
 
 export default function Home() {
   return (
@@ -24,5 +24,5 @@ export default function Home() {
         <Footer />
       </div>
     </>
-  );
+  )
 }

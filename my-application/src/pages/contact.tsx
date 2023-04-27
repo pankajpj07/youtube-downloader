@@ -1,7 +1,7 @@
-import Head from "next/head";
-import Link from "next/link";
-import Header from "../components/header";
-import Footer from "../components/footer";
+import Head from 'next/head'
+import Link from 'next/link'
+import Header from '../components/header'
+import Footer from '../components/footer'
 
 export default function ContactUs() {
   return (
@@ -24,7 +24,7 @@ export default function ContactUs() {
           <div className="px-4 md:px-8 py-10 md:py-16 max-w-screen-md mx-auto">
             <h1 className="text-3xl font-bold mb-6">Contact Us</h1>
             <p className="text-lg mb-6">
-              The only way to reach us is through email:{" "}
+              The only way to reach us is through email:{' '}
               <a
                 className="text-blue-600"
                 href="mailto:support@utubeloader.com"
@@ -45,5 +45,5 @@ export default function ContactUs() {
       </div>
       <Footer />
     </>
-  );
+  )
 }

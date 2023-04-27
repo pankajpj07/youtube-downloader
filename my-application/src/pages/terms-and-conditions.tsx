@@ -1,7 +1,7 @@
-import Head from "next/head";
-import { companyName } from "../constants/constants";
-import Header from "../components/header";
-import Footer from "../components/footer";
+import Head from 'next/head'
+import { companyName } from '../constants/constants'
+import Header from '../components/header'
+import Footer from '../components/footer'
 
 export default function TermsAndConditions() {
   return (
@@ -13,7 +13,10 @@ export default function TermsAndConditions() {
           href="https://www.utubeloader.com/terms-and-conditions"
           key="canonical"
         />
-        <meta name="description" content="Read our Terms and Conditions to learn about your rights and obligations when using {companyName} services. Find out how we protect your privacy and what you need to know before using our platform."></meta>
+        <meta
+          name="description"
+          content="Read our Terms and Conditions to learn about your rights and obligations when using {companyName} services. Find out how we protect your privacy and what you need to know before using our platform."
+        ></meta>
       </Head>
       <Header />
       <div className="bg-gray-100 py-12 px-4">
@@ -62,7 +65,7 @@ export default function TermsAndConditions() {
 
           <h2 className="text-xl font-bold mb-2">Disclaimer of Warranties</h2>
           <p className="mb-4">
-            The Service is provided "as is" and without warranty of any kind.{" "}
+            The Service is provided "as is" and without warranty of any kind.{' '}
             {companyName} does not warrant that the Service will be
             uninterrupted or error-free, or that the Service will meet your
             specific requirements or expectations. {companyName} expressly
@@ -103,7 +106,7 @@ export default function TermsAndConditions() {
             who access or use the Service from jurisdictions prohibiting such
             use, do so at their own volition and are responsible for compliance
             with applicable laws. These Terms shall be governed and interpreted
-            in accordance with the laws of the jurisdiction in which{" "}
+            in accordance with the laws of the jurisdiction in which{' '}
             {companyName} is incorporated, without giving effect to any conflict
             of laws principles. Any legal action or proceeding arising under
             these Terms shall be brought exclusively in the federal or state
@@ -116,5 +119,5 @@ export default function TermsAndConditions() {
       </div>
       <Footer />
     </>
-  );
+  )
 }

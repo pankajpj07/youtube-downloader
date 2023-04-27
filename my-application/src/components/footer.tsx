@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from 'next/link'
 
 export default function Footer() {
   return (
@@ -10,23 +10,33 @@ export default function Footer() {
           </div>
           <div className="col-span-1 md:col-span-2 flex flex-col md:flex-row justify-center items-center md:justify-end space-y-2 md:space-y-0 md:space-x-4">
             <Link href="/about">
-              <span className="text-gray-600 hover:text-gray-900 cursor-pointer">About</span>
+              <span className="text-gray-600 hover:text-gray-900 cursor-pointer">
+                About
+              </span>
             </Link>
             <Link href="/privacy-policy">
-              <span className="text-gray-600 hover:text-gray-900 cursor-pointer">Privacy Policy</span>
+              <span className="text-gray-600 hover:text-gray-900 cursor-pointer">
+                Privacy Policy
+              </span>
             </Link>
             <Link href="/terms-and-conditions">
-              <span className="text-gray-600 hover:text-gray-900 cursor-pointer">Terms & Conditions</span>
+              <span className="text-gray-600 hover:text-gray-900 cursor-pointer">
+                Terms & Conditions
+              </span>
             </Link>
             <Link href="/contact">
-              <span className="text-gray-600 hover:text-gray-900 cursor-pointer">Contact</span>
+              <span className="text-gray-600 hover:text-gray-900 cursor-pointer">
+                Contact
+              </span>
             </Link>
             <Link href="/faq">
-              <span className="text-gray-600 hover:text-gray-900 cursor-pointer">FAQ</span>
+              <span className="text-gray-600 hover:text-gray-900 cursor-pointer">
+                FAQ
+              </span>
             </Link>
           </div>
         </div>
       </div>
     </footer>
-  );
+  )
 }

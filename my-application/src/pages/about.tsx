@@ -1,6 +1,6 @@
-import Head from "next/head";
-import Header from "../components/header";
-import Footer from "../components/footer";
+import Head from 'next/head'
+import Header from '../components/header'
+import Footer from '../components/footer'
 
 export default function About() {
   return (
@@ -43,5 +43,5 @@ export default function About() {
       </div>
       <Footer />
     </>
-  );
+  )
 }
